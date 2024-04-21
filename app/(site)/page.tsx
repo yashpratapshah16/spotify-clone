@@ -39,7 +39,7 @@ export default function Home() {
                 image="/Images/liked.jpg"
                 name="Liked songs"
                 href="liked"
-              />
+              /> 
             </div>
           </div>
         </Header>
