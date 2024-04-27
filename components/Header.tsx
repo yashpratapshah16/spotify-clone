@@ -12,6 +12,7 @@ import { useUser } from "@/hooks/useUser";
 import { log } from "console";
 import { FaUserAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 interface HeaderProps {
     children: React.ReactNode;
@@ -33,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         router.refresh();
         if (error) {
             toast.error(error.message);
-        }else{
+        } else {
             toast.success("Logged Out!!")
         }
     }
@@ -103,7 +104,9 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                           transition
                         "
                     >
-                        <HiHome className="text-black" size={20} />
+                        <Link href="/">
+                            <HiHome className="text-black" size={20} />
+                        </Link>
                     </button>
                     <button
                         className="
@@ -117,7 +120,9 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                           transition
                         "
                     >
-                        <BiSearch className="text-black" size={20} />
+                        <Link href="/search">
+                            <BiSearch className="text-black" size={20} />
+                        </Link>
                     </button>
                 </div>
                 <div
