@@ -7,6 +7,7 @@ import { Song } from "@/types";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
 import MediaItem from "./MediaItem";
+import useOnPlay from "@/hooks/useOnPlay";
 
 interface LibraryProps{
     songs:Song[];
@@ -25,6 +26,9 @@ const Library:React.FC<LibraryProps> = ({songs}) => {
         
         return uploadModal.onOpen();
     }
+
+    const onPlay=useOnPlay(songs);
+
     return (
         <div className=" flex flex-col">
             <div 
@@ -74,7 +78,7 @@ const Library:React.FC<LibraryProps> = ({songs}) => {
                 {songs.map((song)=>(
                     <MediaItem
                         key={song.id}
-                        onClick={()=>{}}
+                        onClick={(id:string)=>{onPlay(id)}}
                         data={song}
                     />
                 ))}
