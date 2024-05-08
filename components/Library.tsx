@@ -80,6 +80,7 @@ const Library:React.FC<LibraryProps> = ({songs}) => {
                         key={song.id}
                         onClick={(id:string)=>{onPlay(id)}}
                         data={song}
+                        play
                     />
                 ))}
             </div>

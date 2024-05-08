@@ -3,17 +3,21 @@
 import useLoadimage from "@/hooks/useLoadimage";
 import { Song } from "@/types";
 import Image from "next/image";
+import { useEffect } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface MediaItemProps {
     data: Song;
+    play?: boolean;
     onClick?: (id: string) => void;
 }
 
 const MediaItem: React.FC<MediaItemProps> = ({
+    play = false,
     data,
     onClick
 }) => {
-
+    
     const imagePath = useLoadimage(data);
 
     const handleClick = () => {
@@ -23,7 +27,6 @@ const MediaItem: React.FC<MediaItemProps> = ({
 
         //TODO:default turn on player
     }
-
     return (
         <div
             onClick={handleClick}
@@ -62,9 +65,13 @@ const MediaItem: React.FC<MediaItemProps> = ({
                  overflow-hidden
                 "
             >
-                <p className=" text-white truncate">
-                    {data.title}
-                </p>
+                <div className={twMerge("", play && "overflow-hidden text-nowrap")}>
+                    <p className={twMerge("text-white ", play ? "animate-SlideX" : "truncate")}>
+                        <abbr className=" no-underline" title={data.title}>
+                            {data.title}
+                        </abbr>
+                    </p>
+                </div>
                 <p className=" text-neutral-400 text-sm truncate">
                     {data.author}
                 </p>

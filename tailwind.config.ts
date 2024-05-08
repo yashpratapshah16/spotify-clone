@@ -8,7 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      
+      keyframes: {
+        SlideX: {
+          "45%": {
+            transform: "translateX(-100%)",
+          },
+          "75%": {
+            right: "translateX(100%)",
+          },
+        },
+      },
+      animation: {
+        SlideX: "SlideX 20s linear",
+      },
     },
   },
   plugins: [],
