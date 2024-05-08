@@ -11,7 +11,7 @@ const config: Config = {
       keyframes: {
         SlideX: {
           "45%": {
-            transform: "translateX(-100%)",
+            transform: "translateX(-200%)",
           },
           "75%": {
             right: "translateX(100%)",

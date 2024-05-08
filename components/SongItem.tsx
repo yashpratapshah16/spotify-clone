@@ -54,7 +54,9 @@ const SongItem: React.FC<SongItemProps> = ({
             </div>
             <div className=" flex flex-col items-start w-full pt-4 gap-y-1">
                 <p className=" font-semibold truncate w-full">
+                    <abbr title={data.title} className=" no-underline">
                     {data.title}
+                    </abbr>
                 </p>
                 <p
                     className="
